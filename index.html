@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adrielly e Felipe</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.4.1/css/all.min.css"
+    integrity="sha512-/RUbtHakVMJrg1ILtwvDIceb/cDkk97rWKvfnFSTOmNbytCyEylutDqeEr9adIBye3suD3RfcsXLOLBqYRW4gw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.4.1/css/brands.min.css"
+    integrity="sha512-drwJH4QxOGM8azjNu87OGn2bu7k6ToXwyEvWUJMYMeZyu/w7SlpgH+twp03Us49XasaJa240ane5rWx20Y/KFQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.4.1/css/fontawesome.min.css"
+    integrity="sha512-BKi4eRioAvJXLdNg7ovPfxyjW9UTPmHn9/P/tbPhJNrlSas2ukXzhhc9kKWZB5uWrJDI272RsK1Tdik0YpNwxA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.4.1/css/regular.min.css"
+    integrity="sha512-t3j0gOBpteoSqXflL036sH8fMwOjdsScY2cBIukybeBJjRDDLA1oNz4l7xbMxXBZlqA96WIdmzKRHIOvihpEfw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.4.1/css/solid.min.css"
+    integrity="sha512-vO0CWkG1zieLGlUn5672fhaph8moNTLJa5YxFoESbH6Ae6l08Cf7/8eiSN9/mSIouLGlETU+/A2slJYJYR761A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.4.1/css/svg-with-js.min.css"
+    integrity="sha512-n7mJF425gAv+JTTpol0EtTMyITNEWt5OFVZ2/Q/w1ZRybGtWQODD/Wj0KhbRk//jrLmL4hEbcBgZGZ5H9sUD7Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.4.1/css/v4-shims.min.css"
+    integrity="sha512-S2zTRmgr9d6zm4LTJR0TGmNDOvQyjcKOhEDlxFY/hRggFoK3y33O0A8yLSK4Xpcrn9wNme8h91aIwTvID2wVjw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    section {
+      font-family: 'Parisienne', cursive;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      align-items: center;
+      justify-content: center;
+      flex: 1 1 auto;
+      height: 100vh;
+      color: pink;
+      background: rgb(195, 86, 106);
+      background: linear-gradient(180deg, rgba(195, 86, 106, 1) 26%, rgba(45, 100, 168, 1) 100%);
+    }
+
+    .welcome-flowers {
+      width: 100%;
+      position: absolute;
+      z-index: -1;
+    }
+
+    .flower-1 {
+      top: 0;
+    }
+
+    .flower-2 {
+      bottom: 0;
+      transform: rotate(180deg);
+    }
+
+    .perfil {
+      width: 50%;
+      border-radius: 50%;
+      border: 4px pink solid;
+    }
+
+    .simnao {
+      margin: 20px;
+    }
+
+    .preparada {
+      display: flex;
+      gap: 40px;
+      font-size: 30px;
+      font-family: 'Roboto', sans-serif;
+      margin-top: 20px;
+    }
+
+    .preparada div {
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      width: 100px;
+      border: 2px pink solid;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: pink;
+    }
+
+    span {
+      font-family: 'Roboto', sans-serif;
+      font-size: 20px;
+    }
+
+
+    h2 {
+      font-size: 2.7rem;
+      margin: 0;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .pergunta {
+      margin: 15px 0px;
+      text-align: center;
+    }
+
+    .round {
+      position: relative;
+    }
+
+    .round label {
+      background-color: transparent;
+      border: 1px solid pink;
+      border-radius: 50%;
+      cursor: pointer;
+      height: 28px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 28px;
+    }
+
+    .round label:after {
+      border: 2px solid #fff;
+      border-top: none;
+      border-right: none;
+      content: "";
+      height: 6px;
+      left: 7px;
+      opacity: 0;
+      position: absolute;
+      top: 8px;
+      transform: rotate(-45deg);
+      width: 12px;
+    }
+
+    .round input[type="radio"] {
+      visibility: hidden;
+    }
+
+    .round span {
+      display: inline-block;
+      margin-top: 2px;
+      margin-left: 10px;
+    }
+
+    .round input[type="radio"]:checked+label {
+      background-color: pink;
+      border-color: pink;
+    }
+
+    .round input[type="radio"]:checked+label:after {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <audio id="oceans" autoplay src="oceans.mp3"></audio>
+  <section id="welcome" class="animate__animated animate__fadeInDown animate__slow">
+    <img class="perfil" src="./Perfil.png" alt="">
+    <h2 style="margin-bottom: 40px;" class="animation-element">Adrielly e Felipe</h2>
+    <i style="font-size: 40px; cursor: pointer;" onclick="goToStep('happy');"
+      class="fas fa-chevron-down animate__animated animate__bounce animate__infinite animate__slow"></i>
+    <img class="welcome-flowers flower-1 animation-element" src="./flores.png" alt="" srcset="">
+    <img class="welcome-flowers flower-2 animation-element" src="./flores.png" alt="" srcset="">
+  </section>
+  <section id="happy">
+
+    <h2 class="animation-element">Você está preparada?</h2>
+    <span class="simnao"> Responda com <strong>SIM</strong> ou
+      <strong>NÃO</strong></span>
+    <div class="preparada">
+      <div class="clickSim1" onclick="goToStep('pergunta-1')">
+        Sim
+      </div>
+      <div onclick="clickNao1()">
+        Não
+      </div>
+    </div>
+  </section>
+  <section id="pergunta-1">
+    <h2 style="margin-top: auto;">Pergunta nº 1</h2>
+    <span class="pergunta">Quanto tempo de namoro nós temos?</span>
+    <div style="display: flex; flex: 0 0 auto;flex-wrap: wrap; gap: 10px;flex-direction: column;">
+      <div class="round">
+        <input type="radio" id="checkbox1" value="1" name="namoro-pergunta" />
+        <label for="checkbox1"></label>
+        <span>10 meses</span>
+      </div>
+      <div class="round">
+        <input type="radio" id="checkbox2" value="2" name="namoro-pergunta" />
+        <label for="checkbox2"></label>
+        <span>1 ano</span>
+      </div>
+      <div class="round">
+        <input type="radio" id="checkbox3" value="3" name="namoro-pergunta" />
+        <label for="checkbox3"></label>
+        <span>11 meses</span>
+      </div>
+    </div>
+    <div style="margin-top: auto;margin-bottom: 40px;" class="preparada">
+
+      <div onclick="repostaNamoro()">
+        Enviar
+      </div>
+    </div>
+  </section>
+  <section id="pergunta-2">
+    <h2 style="margin-top: auto;">Pergunta nº 2</h2>
+    <span class="pergunta">Qual a comida que mais comemos juntos?</span>
+    <div style="display: flex; flex: 0 0 auto;flex-wrap: wrap; gap: 10px;flex-direction: column;">
+      <div class="round">
+        <input type="radio" id="comida1" value="1" name="comida-pergunta" />
+        <label for="comida1"></label>
+        <span>Sushi</span>
+      </div>
+      <div class="round">
+        <input type="radio" id="comida2" value="2" name="comida-pergunta" />
+        <label for="comida2"></label>
+        <span>Crepe</span>
+      </div>
+      <div class="round">
+        <input type="radio" id="comida3" value="3" name="comida-pergunta" />
+        <label for="comida3"></label>
+        <span>Hambúrguer</span>
+      </div>
+    </div>
+    <div style="margin-top: auto;margin-bottom: 40px;" class="preparada">
+
+      <div onclick="repostaComida()">
+        Enviar
+      </div>
+    </div>
+  </section>
+  <section id="pergunta-3">
+    <h2 style="margin-top: auto;">Pergunta nº 3</h2>
+    <span class="pergunta">Qual pastor tem acompanhado nossa tragetória?</span>
+    <div style="display: flex; flex: 0 0 auto;flex-wrap: wrap; gap: 10px;flex-direction: row;">
+      <div style="display: flex; flex-direction: column; justify-content: center;">
+
+        <img class="perfil" style="width:80px;height: 80px" src="./Ivan.png" alt="">
+        <div class="round">
+          <input type="radio" id="pastor1" value="1" name="pastor-pergunta" />
+          <label style="left: 50%;transform: translate(-50%, 0);margin-top: 20px;" for="pastor1"></label>
+        </div>
+      </div style="display: flex; flex-direction: column; justify-content: center;">
+      <div>
+        <img class="perfil" style="width:80px;height: 80px" src="./Repolho.jpg" alt="">
+        <div class="round">
+          <input type="radio" id="pastor2" value="2" name="pastor-pergunta" />
+          <label style="left: 50%;transform: translate(-50%, 0);margin-top: 20px;" for="pastor2"></label>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: center;">
+        <img class="perfil" style="width:80px;height: 80px;" src="./Juninho.png" alt="">
+        <div class="round">
+          <input type="radio" id="pastor3" value="3" name="pastor-pergunta" />
+          <label style="left: 50%;transform: translate(-50%, 0);margin-top: 20px;" for="pastor3"></label>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: auto;margin-bottom: 40px;" class="preparada">
+
+      <div onclick="repostaPastor()">
+        Enviar
+      </div>
+    </div>
+  </section>
+  <section id="calma">
+    <span id="ei" style="font-size: 130px;display: none;"
+      class="animate__animated animate__fadeOut animate__delay-2s">Ei
+    </span>
+    <span style="font-size: 50px;display: none;text-align: center;" class="animate__animated animate__fadeIn olha">Eu
+      disse <strong>"ei"</strong> ....
+    </span>
+    <span style="font-size: 50px;display: none;text-align: center;"
+      class="animate__animated animate__fadeIn olha animate__delay-2s" id="olha"> não
+      disse
+      <strong>"olha"</strong>
+    </span>
+
+  </section>
+  <section id="gostando">
+
+    <h2 class="animation-element">Tás gostando até agora?</h2>
+    <span class="simnao"> Responda com <strong>SIM</strong> ou
+      <strong>NÃO</strong></span>
+    <div class="preparada">
+      <div class="clickSim2" onclick="goToStep('continuar');$('.botao-toxico').css('display','block')">
+        Sim
+      </div>
+      <div onclick="clickNao2()">
+        Não
+      </div>
+    </div>
+  </section>
+  <section id="continuar">
+    <div style="display: flex; flex-direction: column; justify-content: center;align-items: center;text-align: center;"
+      class="animate__animated animate__fadeIn animate__slow botao-toxico">
+
+      <span style="font-size: 50px;text-align: center;">
+        Então vamos continuar...
+      </span>
+      <div>
+
+        <i style="font-size: 40px; cursor: pointer; margin-top: 40px;" onclick="goToStep('pergunta-toxico')"
+          class="fas fa-chevron-down animate__animated animate__bounce animate__infinite animate__slow"></i>
+      </div>
+    </div>
+  </section>
+  <section id="pergunta-toxico">
+
+    <h2 class="animation-element">Pergunta nº 5</h2>
+    <span class="pergunta">Tu já reparou que não dá pra dizer não pra nenhuma pergunta?</span>
+    <span class="simnao"> Responda com <strong>SIM</strong> ou
+      <strong>NÃO</strong></span>
+    <div class="preparada">
+      <div class="clickSim3" onclick="goToStep('toxico');$('.toxico').css('display','block')">
+        Sim
+      </div>
+      <div onclick="clickNao3()">
+        Não
+      </div>
+    </div>
+  </section>
+  <section id="toxico">
+    <span style="font-size: 30px; text-align: center;display: none;"
+      class="animate__animated animate__fadeIn animate__slow toxico">Pois
+      é...
+    </span>
+    <span id="span-toxico" style="font-size: 90px; text-align: center; margin-top: 40px;display: none;"
+      class="animate__animated animate__fadeIn animate__slow animate__delay-2s toxico">
+      <strong>TÓXICO</strong>
+    </span>
+    <div style="display: none;" id="pergunta-quanto-foi"
+      class="animate__animated animate__fadeIn  animate__slow animate__delay-3s toxico">
+
+      <i style="font-size: 40px; cursor: pointer; margin-top: 40px;" onclick="goToStep('pergunta-6')"
+        class="fas fa-chevron-down animate__animated animate__bounce animate__infinite animate__slow"></i>
+    </div>
+
+  </section>
+  <section id="pergunta-6">
+    <h2 style="margin-top: auto;">Pergunta nº 6</h2>
+    <span class="pergunta">Quanto foi o jogo do Brasil nesse dia?</span>
+    <div style="display: flex; justify-content: center;align-items: center;margin-top: 40px;">
+
+      <img style="border: 2px solid pink; width: 50%;margin-left: auto;margin-right: 20px;" src="./jogo.jpeg" alt="">
+      <div
+        style="display: flex; margin-right: auto; gap: 10px;flex-direction: column; justify-content: center;align-items: center;">
+        <div class="round">
+          <input type="radio" id="jogo1" value="1" name="jogo-pergunta" />
+          <label for="jogo1"></label>
+          <span>4 - 1</span>
+        </div>
+        <div class="round">
+          <input type="radio" id="jogo2" value="2" name="jogo-pergunta" />
+          <label for="jogo2"></label>
+          <span>2 - 0</span>
+        </div>
+        <div class="round">
+          <input type="radio" id="jogo3" value="3" name="jogo-pergunta" />
+          <label for="jogo3"></label>
+          <span>1 - 0</span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: auto;margin-bottom: 40px;" class="preparada">
+
+      <div onclick="repostaJogo()">
+        Enviar
+      </div>
+    </div>
+  </section>
+  <section id="pergunta-7">
+    <h2 style="margin-top: auto;">Pergunta nº 7</h2>
+    <span class="pergunta">Qual sala ganhamos?</span>
+    <div
+      style="display: flex; flex: 0 0 auto;flex-wrap: wrap; gap: 10px;flex-direction: column;justify-content: center;align-items: center;">
+      <img style="border: 2px solid pink; width: 50%;margin: 20px; 0" src="./sala.jpeg" alt="">
+
+      <div class="round">
+        <input type="radio" id="escape1" value="1" name="escape-pergunta" />
+        <label for="escape1"></label>
+        <span>Sótão de Kate</span>
+      </div>
+      <div class="round">
+        <input type="radio" id="escape2" value="2" name="escape-pergunta" />
+        <label for="escape2"></label>
+        <span>Cena do crime</span>
+      </div>
+      <div class="round">
+        <input type="radio" id="escape3" value="3" name="escape-pergunta" />
+        <label for="escape3"></label>
+        <span>Casa da moeda</span>
+      </div>
+    </div>
+
+    <div style="margin-top: auto;margin-bottom: 40px;" class="preparada">
+
+      <div onclick="repostaEscape()">
+        Enviar
+      </div>
+    </div>
+  </section>
+  <section id="pergunta-8">
+    <h2 style="margin-top: auto;">Pergunta nº 8</h2>
+    <span class="pergunta">De quem foi esse casamento?</span>
+    <div
+      style="display: flex; flex: 0 0 auto;flex-wrap: wrap; gap: 10px;flex-direction: column;justify-content: center;align-items: center;">
+      <img style="border: 2px solid pink; width: 50%;margin: 20px; " src="./casamento.jpeg" alt="">
+
+      <div class="round">
+        <input type="radio" id="casamento1" value="1" name="casamento-pergunta" />
+        <label for="casamento1"></label>
+        <span>Guto e Lila</span>
+      </div>
+      <div class="round">
+        <input type="radio" id="casamento2" value="2" name="casamento-pergunta" />
+        <label for="casamento2"></label>
+        <span>Caio e Rita</span>
+      </div>
+      <div class="round">
+        <input type="radio" id="casamento3" value="3" name="casamento-pergunta" />
+        <label for="casamento3"></label>
+        <span>Nailson e Letícia</span>
+      </div>
+    </div>
+
+    <div style="margin-top: auto;margin-bottom: 40px;" class="preparada">
+
+      <div onclick="repostaCasamento()">
+        Enviar
+      </div>
+    </div>
+  </section>
+  <section id="pergunta-9">
+    <h2 style="margin-top: auto;">Pergunta nº 9</h2>
+    <span class="pergunta">Que bixinho ganhamos?</span>
+    <div
+      style="display: flex; flex: 0 0 auto;flex-wrap: wrap; gap: 10px;flex-direction: column;justify-content: center;align-items: center;">
+      <img style="border: 2px solid pink; width: 50%;margin: 20px;" src="./Picapau.png" alt="">
+
+      <div class="round">
+        <input type="radio" id="bixinho1" value="1" name="bixinho-pergunta" />
+        <label for="bixinho1"></label>
+        <span>Pikachu</span>
+      </div>
+      <div class="round">
+        <input type="radio" id="bixinho2" value="2" name="bixinho-pergunta" />
+        <label for="bixinho2"></label>
+        <span>Pantera Cor-de-rosa</span>
+      </div>
+      <div class="round">
+        <input type="radio" id="bixinho3" value="3" name="bixinho-pergunta" />
+        <label for="bixinho3"></label>
+        <span>Pica-pau</span>
+      </div>
+    </div>
+
+    <div style="margin-top: auto;margin-bottom: 40px;" class="preparada">
+
+      <div onclick="respostaBixinho()">
+        Enviar
+      </div>
+    </div>
+  </section>
+  <section id="pergunta-10">
+    <h2 style="margin-top: auto;">Pergunta nº 10</h2>
+    <span class="pergunta">Que bixinho ganhamos?</span>
+    <div
+      style="display: flex; flex: 0 0 auto;flex-wrap: wrap; gap: 10px;flex-direction: column;justify-content: center;align-items: center;">
+      <img style="border: 2px solid pink; width: 50%;margin: 20px;" src="./Picapau.png" alt="">
+
+      <div class="round">
+        <input type="radio" id="bixinho1" value="1" name="bixinho-pergunta" />
+        <label for="bixinho1"></label>
+        <span>Pikachu</span>
+      </div>
+      <div class="round">
+        <input type="radio" id="bixinho2" value="2" name="bixinho-pergunta" />
+        <label for="bixinho2"></label>
+        <span>Pantera Cor-de-rosa</span>
+      </div>
+      <div class="round">
+        <input type="radio" id="bixinho3" value="3" name="bixinho-pergunta" />
+        <label for="bixinho3"></label>
+        <span>Pica-pau</span>
+      </div>
+    </div>
+
+    <div style="margin-top: auto;margin-bottom: 40px;" class="preparada">
+
+      <div onclick="respostaBixinho()">
+        Enviar
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.4.1/js/all.min.js"
+  integrity="sha512-8X0DVBt//kFsDuv3T1JxOJ9IiQ1Zn0pS2mOemdOslgoIRiAXFtfe+o1WfmXAlXb6UHASlKEKfFiWk6lwSplDGg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.4.1/js/brands.min.js"
+  integrity="sha512-zz3/xELrRewt5nYq9SoDThhxOfjne7rLdqAw8M4OAm9I4v1jo718xzcD5rxlZ+HPDXMnneO/s4Cb7iTlNE8OMA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.4.1/js/fontawesome.min.js"
+  integrity="sha512-/4yuG8MtX7w/hb1qhdAQvMtWx3+XDj+J1+luqmh3TgyAynU3ZHgFf9O3FJSHQ4T3Clxkcch6pya7I1g8MeFGQg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.4.1/js/regular.min.js"
+  integrity="sha512-Y1QQtEaOGzQFl1KGVbTZcOlcDViYEemI+4mVEnYUsi6jDhr4sQO/M4DjKwt3o1J1rOEM4xyXnswA3byxw7+bOQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.4.1/js/solid.min.js"
+  integrity="sha512-5kM8cvc1DNQtgOWnaf6gEw7ngsI4FFCxIj3a2pijL+ay3ZElFxrStJnmxX+tGhT4VlZvkoSuRLtDqX1fmeaMsA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.4.1/js/v4-shims.min.js"
+  integrity="sha512-a5M+wyBmm+cU3Pvw2Mxe+MFhMM0EBsDdcW//lkY4uR4tJAxJrK7a3nkktwfGaFbbW1J3UnRyLf8r2eQ9aBHZ5g=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
+  integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script>
+  let casamento = {}
+
+  function loadCasamento() {
+    casamento = JSON.parse(localStorage.getItem('casamento')) || { step: "welcome" }
+    goToStep(casamento.step)
+  }
+
+  function goToStep(step) {
+    document.getElementById(step).scrollIntoView({ behavior: 'smooth' });
+    casamento.step = step
+    saveCasamento()
+  }
+
+  function saveCasamento() {
+    localStorage.setItem('casamento', JSON.stringify(casamento))
+  }
+
+  $(document).ready(function () {
+    loadCasamento()
+  });
+
+  function clickNao1() {
+    animateCSS('.clickSim1', 'bounce')
+
+  }
+  function clickNao2() {
+    animateCSS('.clickSim2', 'bounce')
+
+  }
+  function clickNao3() {
+    animateCSS('.clickSim3', 'bounce')
+
+  }
+
+  function acertou() {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ['#ffc0cb']
+    });
+  }
+
+  function repostaPastor() {
+    if ($('input[name=pastor-pergunta]:checked').val() == 2) {
+      goToStep('calma')
+      acertou()
+      $('#ei').css('display', 'block')
+    } else {
+      animateCSS('#pergunta-3 div', 'bounce')
+      animateCSS('#pergunta-3 h2', 'bounce')
+      animateCSS('#pergunta-3 span', 'bounce')
+      $('input[name=pastor-pergunta]:checked').prop('checked', false)
+    }
+  }
+
+  function repostaComida() {
+    if ($('input[name=comida-pergunta]:checked').val() == 3) {
+      goToStep('pergunta-3')
+      acertou()
+    } else {
+      animateCSS('#pergunta-2 div', 'bounce')
+      animateCSS('#pergunta-2 h2', 'bounce')
+      animateCSS('#pergunta-2 span', 'bounce')
+      $('input[name=comida-pergunta]:checked').prop('checked', false)
+    }
+  }
+  function repostaJogo() {
+    if ($('input[name=jogo-pergunta]:checked').val() == 2) {
+      goToStep('pergunta-7')
+      acertou()
+    } else {
+      animateCSS('#pergunta-6 div', 'bounce')
+      animateCSS('#pergunta-6 h2', 'bounce')
+      animateCSS('#pergunta-6 span', 'bounce')
+      $('input[name=jogo-pergunta]:checked').prop('checked', false)
+    }
+  }
+
+  function repostaEscape() {
+    if ($('input[name=escape-pergunta]:checked').val() == 3) {
+      goToStep('pergunta-8')
+      acertou()
+    } else {
+      animateCSS('#pergunta-7 div', 'bounce')
+      animateCSS('#pergunta-7 h2', 'bounce')
+      animateCSS('#pergunta-7 span', 'bounce')
+      $('input[name=escape-pergunta]:checked').prop('checked', false)
+    }
+  }
+
+  function repostaCasamento() {
+    if ($('input[name=casamento-pergunta]:checked').val() == 1) {
+      goToStep('pergunta-9')
+      acertou()
+    } else {
+      animateCSS('#pergunta-8 div', 'bounce')
+      animateCSS('#pergunta-8 h2', 'bounce')
+      animateCSS('#pergunta-8 span', 'bounce')
+      $('input[name=casamento-pergunta]:checked').prop('checked', false)
+    }
+  }
+  function respostaBixinho() {
+    if ($('input[name=bixinho-pergunta]:checked').val() == 3) {
+      goToStep('pergunta-10')
+      acertou()
+    } else {
+      animateCSS('#pergunta-9 div', 'bounce')
+      animateCSS('#pergunta-9 h2', 'bounce')
+      animateCSS('#pergunta-9 span', 'bounce')
+      $('input[name=bixinho-pergunta]:checked').prop('checked', false)
+    }
+  }
+
+  function repostaNamoro() {
+    if ($('input[name=namoro-pergunta]:checked').val() == 1) {
+      goToStep('pergunta-2')
+      acertou()
+    } else {
+      animateCSS('#pergunta-1 div', 'bounce')
+      animateCSS('#pergunta-1 h2', 'bounce')
+      animateCSS('#pergunta-1 span', 'bounce')
+      $('input[name=namoro-pergunta]:checked').prop('checked', false)
+    }
+  }
+  $('#ei').on('animationend', function () {
+    $('#ei').css('display', 'none')
+    $('.olha').css('display', 'block')
+  })
+  $('#olha').on('animationend', function () {
+    goToStep('gostando')
+  })
+
+  const animateCSS = (element, animation, prefix = 'animate__') =>
+    // We create a Promise and return it
+    new Promise((resolve, reject) => {
+      const animationName = `${prefix}${animation}`;
+      const node = document.querySelector(element);
+
+      node.classList.add(`${prefix}animated`, animationName);
+
+      // When the animation ends, we clean the classes and resolve the Promise
+      function handleAnimationEnd(event) {
+        event.stopPropagation();
+        node.classList.remove(`${prefix}animated`, animationName);
+        resolve('Animation ended');
+      }
+
+      node.addEventListener('animationend', handleAnimationEnd, { once: true });
+    });
+</script>
