@@ -576,7 +576,7 @@
     <span class="simnao"> Responda com <strong>SIM</strong> ou
       <strong>NÃO</strong></span>
     <div class="preparada">
-      <div class="" onclick="salvarTudo()">
+      <div class="" onclick="SIM()">
         Sim
       </div>
     </div>
@@ -765,7 +765,7 @@
     goToStep('gostando')
   })
 
-  function salvarTudo() {
+  function SIM() {
     var duration = 15 * 1000;
     var animationEnd = Date.now() + duration;
     var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0, colors: ['#ffc0cb'] };
@@ -786,6 +786,12 @@
       confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
       confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
     }, 250);
+
+    setTimeout(salvarTudo, 3000)
+  }
+
+  function salvarTudo() {
+
     html2canvas(document.getElementById("screenshots")).then(function (canvas) {
 
       const base64ImageData = canvas.toDataURL("image/png")
