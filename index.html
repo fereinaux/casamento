@@ -554,7 +554,8 @@
     </div>
   </section>
   <section id="reel">
-    <h2 style="margin-bottom: 40px;">Momento jovem</h2>
+    <h2 style="margin-bottom: 10px;">Momento jovem</h2>
+    <span id="fotosua" style=" margin-bottom: 20px;">Tire uma foto sua</span>
     <div style="position: relative;display: flex;justify-content: center;align-items: center;" id="video-container">
 
       <video style="width:300px;height: 500px;border: 2px solid pink; object-fit: fill;" autoplay id="cam1">
@@ -890,6 +891,7 @@
       canvas.getContext("2d").drawImage(cam1, 0, 0);
       bg.src = canvas.toDataURL("image/png");
       first = false
+      $('#fotosua').text('Agora uma foto minha')
       initializeCamera()
     } else {
       const front = document.getElementById("front");
