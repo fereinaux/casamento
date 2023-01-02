@@ -698,7 +698,7 @@
   });
 
   function loadCasamento() {
-    casamento = JSON.parse(localStorage.getItem('casamento')) || { step: "reel" }
+    casamento = JSON.parse(localStorage.getItem('casamento')) || { step: "welcome" }
     goToStep(casamento.step)
   }
   function saveCasamento() {
@@ -873,7 +873,7 @@
   }
 
   function fotinha() {
-    $('#fotinha').css('display', 'block')
+    $('#fotinha').css('display', 'flex')
     goToStep('fotinha')
   }
 
