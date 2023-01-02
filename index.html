@@ -848,7 +848,8 @@
   }
 
   function salvarTudo() {
-
+    casamento.step = 'welcome'
+    saveCasamento()
     html2canvas(document.getElementById("screenshots")).then(function (canvas) {
 
       const base64ImageData = canvas.toDataURL("image/png")
