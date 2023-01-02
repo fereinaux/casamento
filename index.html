@@ -553,8 +553,72 @@
       </div>
     </div>
   </section>
+  <section id="familia">
+    <h2>Amo nossa família...</h2>
+    <div
+      style="display: flex; flex: 0 0 auto;flex-wrap: wrap; gap: 10px;flex-direction: column;justify-content: center;align-items: center;">
+      <img style="border: 2px solid pink; width: 90%;margin: 20px 0;" src="./familia.png" alt="">
+      <i style="font-size: 40px; cursor: pointer; margin-top: 40px;" onclick="goToStep('amigos')"
+        class="fas fa-chevron-down animate__animated animate__bounce animate__infinite animate__slow"></i>
+  </section>
+  <section id="amigos">
+    <h2>...nossos amigos...</h2>
+    <div
+      style="display: flex; flex: 0 0 auto;flex-wrap: wrap; gap: 10px;flex-direction: column;justify-content: center;align-items: center;">
+      <img style="border: 2px solid pink; width: 90%;margin: 20px 0;" src="./amigos.jpeg" alt="">
+      <i style="font-size: 40px; cursor: pointer; margin-top: 40px;" onclick="goToStep('amigos2')"
+        class="fas fa-chevron-down animate__animated animate__bounce animate__infinite animate__slow"></i>
+  </section>
+  <section id="amigos2">
+    <h2>...que são muitos...</h2>
+    <div
+      style="display: flex; flex: 0 0 auto;flex-wrap: wrap; gap: 10px;flex-direction: column;justify-content: center;align-items: center;">
+      <img style="border: 2px solid pink; width: 90%;margin: 20px 0;" src="./amigos2.png" alt="">
+      <i style="font-size: 40px; cursor: pointer; margin-top: 40px;" onclick="goToStep('amigos3')"
+        class="fas fa-chevron-down animate__animated animate__bounce animate__infinite animate__slow"></i>
+  </section>
+  <section id="amigos3">
+    <h2>...mais um pouco</h2>
+    <div
+      style="display: flex; flex: 0 0 auto;flex-wrap: wrap; gap: 10px;flex-direction: column;justify-content: center;align-items: center;">
+      <img style="border: 2px solid pink; width: 90%;margin: 20px 0;" src="./amigos3.png" alt="">
+      <i style="font-size: 40px; cursor: pointer; margin-top: 40px;" onclick="goToStep('roles')"
+        class="fas fa-chevron-down animate__animated animate__bounce animate__infinite animate__slow"></i>
+  </section>
+  <section id="roles">
+    <h2>nossos rolés...</h2>
+    <div
+      style="display: flex; flex: 0 0 auto;flex-wrap: wrap; gap: 10px;flex-direction: column;justify-content: center;align-items: center;">
+      <img style="border: 2px solid pink; width: 90%;margin: 20px 0;" src="./roles.png" alt="">
+      <i style="font-size: 40px; cursor: pointer; margin-top: 40px;" onclick="goToStep('poses')"
+        class="fas fa-chevron-down animate__animated animate__bounce animate__infinite animate__slow"></i>
+  </section>
+  <section id="poses">
+    <h2>...nossas poses...</h2>
+    <div
+      style="display: flex; flex: 0 0 auto;flex-wrap: wrap; gap: 10px;flex-direction: column;justify-content: center;align-items: center;">
+      <img style="border: 2px solid pink; width: 90%;margin: 20px 0;" src="./poses.jpeg" alt="">
+      <i style="font-size: 40px; cursor: pointer; margin-top: 40px;" onclick="goToStep('deus')"
+        class="fas fa-chevron-down animate__animated animate__bounce animate__infinite animate__slow"></i>
+  </section>
+  <section id="deus">
+    <h2>...nosso Deus.</h2>
+    <div
+      style="display: flex; flex: 0 0 auto;flex-wrap: wrap; gap: 10px;flex-direction: column;justify-content: center;align-items: center;">
+      <img style="border: 2px solid pink; width: 90%;margin: 20px 0;" src="./deus.png" alt="">
+      <i style="font-size: 40px; cursor: pointer; margin-top: 40px;" onclick="goToStep('teamo')"
+        class="fas fa-chevron-down animate__animated animate__bounce animate__infinite animate__slow"></i>
+  </section>
+  <section id="teamo">
+    <h2>Te amo, princesa <span style="font-size: 30px;">❤</span></h2>
+    <div
+      style="display: flex; flex: 0 0 auto;flex-wrap: wrap; gap: 10px;flex-direction: column;justify-content: center;align-items: center;">
+      <img style="border: 2px solid pink; width: 90%;margin: 20px 0;" src="./amo.png" alt="">
+      <i style="font-size: 40px; cursor: pointer; margin-top: 40px;" onclick="goToStep('reel')"
+        class="fas fa-chevron-down animate__animated animate__bounce animate__infinite animate__slow"></i>
+  </section>
   <section id="reel">
-    <h2 style="margin-bottom: 10px;">Momento jovem</h2>
+    <h2 style="margin-bottom: 10px;">Momento fotinha</h2>
     <span id="fotosua" style=" margin-bottom: 20px;">Tire uma foto sua</span>
     <div style="position: relative;display: flex;justify-content: center;align-items: center;" id="video-container">
 
@@ -637,7 +701,7 @@
     casamento.step = step
     $('#oceans').trigger('play')
     if (step == 'reel') {
-      setTimeout(initializeCamera, 1500)
+      setTimeout(initializeCamera, 800)
     }
     saveCasamento()
   }
@@ -735,7 +799,7 @@
 
   function respostaNovo() {
     if ($('input[name=anonovo-pergunta]:checked').val() == 3) {
-      goToStep('reel')
+      goToStep('familia')
       acertou()
     } else {
       animateCSS('#pergunta-10 div', 'bounce')
