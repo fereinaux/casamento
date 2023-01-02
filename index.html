@@ -731,9 +731,9 @@
 
   function respostaNovo() {
     if ($('input[name=anonovo-pergunta]:checked').val() == 3) {
-      initializeCamera()
       goToStep('reel')
       acertou()
+      initializeCamera()
     } else {
       animateCSS('#pergunta-10 div', 'bounce')
       animateCSS('#pergunta-10 h2', 'bounce')
