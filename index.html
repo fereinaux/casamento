@@ -838,6 +838,7 @@
   })
 
   function SIM() {
+    $('section:not(#concluir)').css('display', 'none')
     var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0, colors: ['#ffc0cb'] };
     var particleCount = 200;
     function randomInRange(min, max) {
@@ -872,6 +873,7 @@
   }
 
   function fotinha() {
+    $('#fotinha').css('display', 'block')
     goToStep('fotinha')
   }
 
