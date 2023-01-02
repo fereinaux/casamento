@@ -843,19 +843,30 @@
     function randomInRange(min, max) {
       return Math.random() * (max - min) + min;
     }
-    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
-    setTimeout(() => {
 
-      confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
-    }, 200);
-    setInterval(function () {
-      confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+    function playConfetti() {
+      confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: 0.8 } }));
       setTimeout(() => {
 
-        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: 0.6 } }));
+        setTimeout(() => {
+
+          confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: 0.12 } }));
+          setTimeout(() => {
+
+            confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: 0.14 } }));
+            setTimeout(() => {
+
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: 0.16 } }));
+
+            }, 200);
+          }, 200);
+        }, 200);
       }, 200);
 
-    }, 750)
+    }
+    playConfetti()
+    setInterval(playConfetti, 1450)
 
     setTimeout(fotinha, 3000)
   }
