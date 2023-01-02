@@ -822,9 +822,9 @@
           var anchorTag = document.createElement("a");
           document.body.appendChild(anchorTag);
           document.getElementById("previewImg").appendChild(canvas);
-          window.open(canvas.toDataURL(), '_blank');
-
           goToStep('concluir')
+          window.open(canvas.toDataURL("image/png"), '_blank');
+
         });
       }
     });
