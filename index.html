@@ -871,7 +871,7 @@
 
       try {
 
-        constraints.video.facingMode = first ? 'user' : 'enviroment';
+        constraints.video.facingMode = 'enviroment';
         videoStream = await navigator.mediaDevices.getUserMedia(constraints);
         cam1.srcObject = videoStream;
       } catch (err) {
