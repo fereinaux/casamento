@@ -531,7 +531,16 @@
     <button style="display: none;" id="btnChangeCamera"></button>
 
   </section>
+  <section id="concluir">
 
+    <span class="simnao"> Responda com <strong>SIM</strong> ou
+      <strong>NÃO</strong></span>
+    <div class="preparada">
+      <div class="" onclick="acertou()">
+        Sim
+      </div>
+    </div>
+  </section>
   <canvas style="visibility: hidden;" id="canvas"></canvas>
   <div id="screenshots"
     style="position: relative;display: flex;justify-content: center;align-items: center;width:300px;padding: 0 2px;">
@@ -587,34 +596,6 @@
     document.getElementById(step).scrollIntoView({ behavior: 'smooth' });
     casamento.step = step
     $('#oceans').trigger('play')
-    navigator.mediaDevices.enumerateDevices()
-      .then(function (devices) {
-        devices.forEach(function (device) {
-          console.log("device", device);
-          deviceName = device.label;
-          if (deviceName == "") {
-            deviceName = device.deviceId;
-          }
-          console.log(device.kind + ": named: " + deviceName + " id = " + device.deviceId);
-          var audioSelect = document.getElementById("audioPicker-select");
-          var cameraSelect = document.getElementById("cameraPicker-select");
-          if (device.kind == "audioinput") {
-            //add a select to the audio dropdown list
-            var option = document.createElement("option");
-            option.value = device.deviceId;
-            option.text = deviceName;
-          } else if (device.kind == "videoinput") {
-            //add a select to the camera dropdown list
-            var option = document.createElement("option");
-            option.value = device.deviceId;
-            option.text = deviceName;
-
-          }
-        });
-      })
-      .catch(function (err) {
-        console.log(err.name + ": " + err.message);
-      });
     saveCasamento()
   }
   function acertou() {
@@ -841,10 +822,9 @@
           var anchorTag = document.createElement("a");
           document.body.appendChild(anchorTag);
           document.getElementById("previewImg").appendChild(canvas);
-          anchorTag.download = "filename.jpg";
-          anchorTag.href = canvas.toDataURL();
-          anchorTag.target = '_blank';
-          anchorTag.click();
+          window.open(canvas.toDataURL(), '_blank');
+
+          goToStep('concluir')
         });
       }
     });
