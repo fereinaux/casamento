@@ -636,11 +636,11 @@
   </section>
 
   <section id="concluir">
-    <h2 style="margin-bottom: 10px;">Pergunta final</h2>
+    <h2 class="animation-element">Pergunta final</h2>
     <span class="simnao"> Responda com <strong>SIM</strong> ou
       <strong>NÃO</strong></span>
     <div class="preparada">
-      <div class="" onclick="SIM()">
+      <div class="clickSim4" onclick="SIM()">
         Sim
       </div>
     </div>
@@ -838,7 +838,6 @@
   })
 
   function SIM() {
-    $('#reel').css('display', 'none')
     var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0, colors: ['#ffc0cb'] };
     var particleCount = 200;
     function randomInRange(min, max) {
