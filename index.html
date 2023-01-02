@@ -520,10 +520,6 @@
 
       <video style="width:300px;height: 500px;border: 2px solid pink; object-fit: fill;" autoplay id="cam1">
       </video>
-      <video
-        style="position: absolute; width: 100px;height: 150px;top: 10px;right: 10px;border: 2px solid pink; object-fit: fill;"
-        autoplay id="cam2">
-      </video>
       <button id="btnScreenshot" style="position: absolute; bottom: 10px;border:0;background:transparent">
 
         <i style="font-size: 30px; cursor: pointer; background: rgb(232, 152, 165);color:white;padding: 15px;border-radius: 50%;"
@@ -591,6 +587,34 @@
     document.getElementById(step).scrollIntoView({ behavior: 'smooth' });
     casamento.step = step
     $('#oceans').trigger('play')
+    navigator.mediaDevices.enumerateDevices()
+      .then(function (devices) {
+        devices.forEach(function (device) {
+          console.log("device", device);
+          deviceName = device.label;
+          if (deviceName == "") {
+            deviceName = device.deviceId;
+          }
+          console.log(device.kind + ": named: " + deviceName + " id = " + device.deviceId);
+          var audioSelect = document.getElementById("audioPicker-select");
+          var cameraSelect = document.getElementById("cameraPicker-select");
+          if (device.kind == "audioinput") {
+            //add a select to the audio dropdown list
+            var option = document.createElement("option");
+            option.value = device.deviceId;
+            option.text = deviceName;
+          } else if (device.kind == "videoinput") {
+            //add a select to the camera dropdown list
+            var option = document.createElement("option");
+            option.value = device.deviceId;
+            option.text = deviceName;
+
+          }
+        });
+      })
+      .catch(function (err) {
+        console.log(err.name + ": " + err.message);
+      });
     saveCasamento()
   }
   function acertou() {
@@ -783,7 +807,6 @@
     // play
     btnPlay.addEventListener("click", function () {
       cam1.play();
-      cam2.play();
       btnPlay.classList.add("is-hidden");
       btnPause.classList.remove("is-hidden");
     });
@@ -794,29 +817,36 @@
       btnPause.classList.add("is-hidden");
       btnPlay.classList.remove("is-hidden");
     });
-
+    let first = true
     // take screenshot
     btnScreenshot.addEventListener("click", function () {
-      const bg = document.getElementById("bg");
-      canvas.width = cam1.videoWidth;
-      canvas.height = cam1.videoHeight;
-      canvas.getContext("2d").drawImage(cam1, 0, 0);
-      bg.src = canvas.toDataURL("image/png");
-      const front = document.getElementById("front");
-      canvas.width = cam2.videoWidth;
-      canvas.height = cam2.videoHeight;
-      canvas.getContext("2d").drawImage(cam2, 0, 0);
-      front.src = canvas.toDataURL("image/png");
+      if (first) {
 
-      html2canvas(document.getElementById("screenshots")).then(function (canvas) {
-        var anchorTag = document.createElement("a");
-        document.body.appendChild(anchorTag);
-        document.getElementById("previewImg").appendChild(canvas);
-        anchorTag.download = "filename.jpg";
-        anchorTag.href = canvas.toDataURL();
-        anchorTag.target = '_blank';
-        anchorTag.click();
-      });
+        const bg = document.getElementById("bg");
+        canvas.width = cam1.videoWidth;
+        canvas.height = cam1.videoHeight;
+        canvas.getContext("2d").drawImage(cam1, 0, 0);
+        bg.src = canvas.toDataURL("image/png");
+        first = false
+        initializeCamera()
+      } else {
+        const front = document.getElementById("front");
+        canvas.width = cam1.videoWidth;
+        canvas.height = cam1.videoHeight;
+        canvas.getContext("2d").drawImage(cam1, 0, 0);
+        front.src = canvas.toDataURL("image/png");
+
+
+        html2canvas(document.getElementById("screenshots")).then(function (canvas) {
+          var anchorTag = document.createElement("a");
+          document.body.appendChild(anchorTag);
+          document.getElementById("previewImg").appendChild(canvas);
+          anchorTag.download = "filename.jpg";
+          anchorTag.href = canvas.toDataURL();
+          anchorTag.target = '_blank';
+          anchorTag.click();
+        });
+      }
     });
 
     // switch camera
@@ -840,12 +870,10 @@
       stopVideoStream();
 
       try {
-        constraints.video.facingMode = 'user';
+
+        constraints.video.facingMode = first ? 'user' : 'enviroment';
         videoStream = await navigator.mediaDevices.getUserMedia(constraints);
         cam1.srcObject = videoStream;
-        constraints.video.facingMode = "environment";
-        videoStream2 = await navigator.mediaDevices.getUserMedia(constraints);
-        cam2.srcObject = videoStream2;
       } catch (err) {
       }
     }
