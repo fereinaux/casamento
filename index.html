@@ -637,7 +637,7 @@
     casamento.step = step
     $('#oceans').trigger('play')
     if (step == 'reel') {
-      initializeCamera()
+      setTimeout(initializeCamera, 1500)
     }
     saveCasamento()
   }
