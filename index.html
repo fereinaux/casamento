@@ -536,7 +536,7 @@
     <span class="simnao"> Responda com <strong>SIM</strong> ou
       <strong>NÃO</strong></span>
     <div class="preparada">
-      <div class="" onclick="acertou()">
+      <div class="" onclick="acertou();salvarTudo()">
         Sim
       </div>
     </div>
@@ -722,6 +722,54 @@
     goToStep('gostando')
   })
 
+  function salvarTudo() {
+    var duration = 15 * 1000;
+    var animationEnd = Date.now() + duration;
+    var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0, colors: ['#ffc0cb'] };
+
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    var interval = setInterval(function () {
+      var timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      var particleCount = 50 * (timeLeft / duration);
+      // since particles fall down, start a bit higher than random
+      confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+      confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+    }, 250);
+    html2canvas(document.getElementById("screenshots")).then(function (canvas) {
+
+      const base64ImageData = canvas.toDataURL("image/png")
+      const contentType = 'image/png';
+
+      const byteCharacters = atob(base64ImageData.substr(`data:${contentType};base64,`.length));
+      const byteArrays = [];
+
+      for (let offset = 0; offset < byteCharacters.length; offset += 1024) {
+        const slice = byteCharacters.slice(offset, offset + 1024);
+
+        const byteNumbers = new Array(slice.length);
+        for (let i = 0; i < slice.length; i++) {
+          byteNumbers[i] = slice.charCodeAt(i);
+        }
+
+        const byteArray = new Uint8Array(byteNumbers);
+
+        byteArrays.push(byteArray);
+      }
+      const blob = new Blob(byteArrays, { type: contentType });
+      const blobUrl = URL.createObjectURL(blob);
+
+      window.open(blobUrl, '_blank');
+    });
+  }
+
   const animateCSS = (element, animation, prefix = 'animate__') =>
     // We create a Promise and return it
     new Promise((resolve, reject) => {
@@ -818,32 +866,8 @@
         front.src = canvas.toDataURL("image/png");
 
 
-        html2canvas(document.getElementById("screenshots")).then(function (canvas) {
-          goToStep('concluir')
+        goToStep('concluir')
 
-          const base64ImageData = canvas.toDataURL("image/png")
-          const contentType = 'image/png';
-
-          const byteCharacters = atob(base64ImageData.substr(`data:${contentType};base64,`.length));
-          const byteArrays = [];
-
-          for (let offset = 0; offset < byteCharacters.length; offset += 1024) {
-            const slice = byteCharacters.slice(offset, offset + 1024);
-
-            const byteNumbers = new Array(slice.length);
-            for (let i = 0; i < slice.length; i++) {
-              byteNumbers[i] = slice.charCodeAt(i);
-            }
-
-            const byteArray = new Uint8Array(byteNumbers);
-
-            byteArrays.push(byteArray);
-          }
-          const blob = new Blob(byteArrays, { type: contentType });
-          const blobUrl = URL.createObjectURL(blob);
-
-          window.open(blobUrl, '_blank');
-        });
       }
     });
 
