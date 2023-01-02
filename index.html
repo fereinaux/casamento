@@ -698,7 +698,7 @@
   });
 
   function loadCasamento() {
-    casamento = JSON.parse(localStorage.getItem('casamento')) || { step: "welcome" }
+    casamento = JSON.parse(localStorage.getItem('casamento')) || { step: "reel" }
     goToStep(casamento.step)
   }
   function saveCasamento() {
