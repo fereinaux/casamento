@@ -813,9 +813,20 @@
         byteArrays.push(byteArray);
       }
       const blob = new Blob(byteArrays, { type: contentType });
-      const blobUrl = URL.createObjectURL(blob);
-
-      window.open(blobUrl, '_blank');
+      const filesArray = [
+        new File(
+          [blob],
+          'meme.jpg',
+          {
+            type: "image/jpeg",
+            lastModified: new Date().getTime()
+          }
+        )
+      ];
+      const shareData = {
+        files: filesArray,
+      };
+      navigator.share(shareData);
     });
   }
 
