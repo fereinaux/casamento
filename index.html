@@ -731,6 +731,7 @@
 
   function respostaNovo() {
     if ($('input[name=anonovo-pergunta]:checked').val() == 3) {
+      initializeCamera()
       goToStep('reel')
       acertou()
     } else {
