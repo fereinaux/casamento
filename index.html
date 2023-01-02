@@ -173,7 +173,7 @@
 </head>
 
 <body>
-  <audio id="oceans" autoplay src="oceans.mp3"></audio>
+  <audio id="oceans" src="oceans.mp3"></audio>
   <section id="welcome" class="animate__animated animate__fadeInDown animate__slow">
     <img class="perfil" src="./Perfil.png" alt="">
     <h2 style="margin-bottom: 40px;" class="animation-element">Adrielly e Felipe</h2>
@@ -577,6 +577,7 @@
 <script>
   let casamento = {}
   $(document).ready(function () {
+    $('#oceans').trigger('play');
     loadCasamento()
   });
 
