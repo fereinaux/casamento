@@ -688,7 +688,6 @@
     if ($('input[name=anonovo-pergunta]:checked').val() == 3) {
       goToStep('reel')
       acertou()
-      navigator.mediaDevices.getUserMedia({ video: true })
     } else {
       animateCSS('#pergunta-10 div', 'bounce')
       animateCSS('#pergunta-10 h2', 'bounce')
@@ -840,10 +839,10 @@
       stopVideoStream();
 
       try {
-        constraints.video.facingMode = useFrontCamera ? "user" : "environment";
+        constraints.video.facingMode = 'user';
         videoStream = await navigator.mediaDevices.getUserMedia(constraints);
         cam1.srcObject = videoStream;
-        constraints.video.facingMode = !useFrontCamera ? "user" : "environment";
+        constraints.video.facingMode = "environment";
         videoStream2 = await navigator.mediaDevices.getUserMedia(constraints);
         cam2.srcObject = videoStream2;
       } catch (err) {
