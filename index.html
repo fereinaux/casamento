@@ -635,6 +635,9 @@
     document.getElementById(step).scrollIntoView({ behavior: 'smooth' });
     casamento.step = step
     $('#oceans').trigger('play')
+    if (step == 'reel') {
+      initializeCamera()
+    }
     saveCasamento()
   }
   function acertou() {
@@ -733,7 +736,6 @@
     if ($('input[name=anonovo-pergunta]:checked').val() == 3) {
       goToStep('reel')
       acertou()
-      initializeCamera()
     } else {
       animateCSS('#pergunta-10 div', 'bounce')
       animateCSS('#pergunta-10 h2', 'bounce')
