@@ -577,7 +577,6 @@
 <script>
   let casamento = {}
   $(document).ready(function () {
-    $('#oceans').trigger('play');
     loadCasamento()
   });
 
@@ -591,6 +590,7 @@
   function goToStep(step) {
     document.getElementById(step).scrollIntoView({ behavior: 'smooth' });
     casamento.step = step
+    $('#oceans').trigger('play')
     saveCasamento()
   }
   function acertou() {
