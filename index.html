@@ -646,20 +646,21 @@
     </div>
   </section>
   <section id="fotinha">
-    <canvas id="canvas"></canvas>
     <div id="screenshots"
       style="position: relative;display: flex;justify-content: center;align-items: center;width:300px;padding: 0 2px;">
       <img id="bg" src="" style="width:300px;height: 500px;border: 2px solid pink; object-fit: fill;" alt="">
       <img id="front" src=""
         style="position: absolute; width: 100px;height: 150px;top: 10px;right: 10px;border: 2px solid pink; object-fit: fill;"
         alt="">
-      <button onclick="salvarTudo()" style="position: absolute; bottom: 10px;border:0;background:transparent">
+      <button onclick="salvarTudo()" id="salvarTudo"
+        style="position: absolute; bottom: 10px;border:0;background:transparent">
 
         <i style="font-size: 30px; cursor: pointer; background: rgb(232, 152, 165);color:white;padding: 15px;border-radius: 50%;"
           class="fas fa-paper-plane"></i>
       </button>
     </div>
   </section>
+  <canvas id="canvas"></canvas>
 </body>
 
 </html>
@@ -857,6 +858,7 @@
   }
 
   function salvarTudo() {
+    $('#salvarTudo').css('display', 'none')
     casamento.step = 'welcome'
     saveCasamento()
     html2canvas(document.getElementById("screenshots")).then(function (canvas) {
